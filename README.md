@@ -3,6 +3,9 @@ Get Informed Decisions About Your Farming Strategy.
 
 
 <h4>A simple machine learning based website which recommends best crop to grow, fertilizers to use and the diseases caught by your crops</h4>
+# Deployed on heroku
+
+<a href="https://harvestsolutions.herokuapp.com/">www.harvestsolutions.herokuapp.com</a>
 
 # MOTIVATION
 Farming is one of the major sectors that influences a country’s economic growth.
@@ -16,6 +19,4 @@ For the fertilizer recommendation application, the user can input the soil data 
 
 For the last application, that is the plant disease prediction application, the user can input an image of a diseased plant leaf, and the application will predict what disease it is and will also give a little background about the disease and suggestions to cure it.
 
-# Deployed on heroku
 
-<a href="https://harvestsolutions.herokuapp.com/">www.harvestsolutions.herokuapp.com</a>
