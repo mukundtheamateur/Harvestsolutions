@@ -16,4 +16,5 @@ For the fertilizer recommendation application, the user can input the soil data 
 
 For the last application, that is the plant disease prediction application, the user can input an image of a diseased plant leaf, and the application will predict what disease it is and will also give a little background about the disease and suggestions to cure it.
 
-# Frameworks used
+# Deployed on heroku
+
