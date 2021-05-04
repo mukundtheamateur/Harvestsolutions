@@ -3,6 +3,7 @@ Get Informed Decisions About Your Farming Strategy.
 
 
 <h4>A simple machine learning based website which recommends best crop to grow, fertilizers to use and the diseases caught by your crops</h4>
+
 # Deployed on heroku
 
 <a href="https://harvestsolutions.herokuapp.com/">www.harvestsolutions.herokuapp.com</a>
