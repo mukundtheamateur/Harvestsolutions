@@ -18,3 +18,4 @@ For the last application, that is the plant disease prediction application, the 
 
 # Deployed on heroku
 
+<a href="https://harvestsolutions.herokuapp.com/">www.harvestsolutions.herokuapp.com</a>
