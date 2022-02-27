@@ -7,7 +7,7 @@
   }
 </style>
 <br /><br />
-  <h2 style="text-align: center; margin: 0px; color: black">
+  <h2 style="text-align: center; margin: 0px; color: rgb(255, 255, 255)">
     <b>Find out which disease has been caught by your plant</b>
   </h2>
   <br />
@@ -17,7 +17,7 @@
     width: 350px;
     height: 50rem;
     margin: 0px auto;
-    color: black;
+    color: rgb(255, 255, 255);
     border-radius: 25px;
     padding: 10px 10px;
     font-weight: bold;
@@ -33,7 +33,7 @@
     <br>
     <br>
     <img id="output-image" class="rounded mx-auto d-block" />
-    <button class="btn btn-lg btn-primary btn-block " onclick="myFunction()" type="submit" style="font-weight: bold;">Predict</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" style="font-weight: bold;" onclick="function1()">Predict</button>
 
 
   </form>
@@ -48,11 +48,10 @@
     }
     reader.readAsDataURL(event.target.files[0]);
   }
-</script>
-<script>
-function myFunction() {
-  alert("This feature will be added soon");
-}
+  
+  function function1(){
+  alert("New Feature will be added soon");
+  }
 </script>
 
 </div>

@@ -1,0 +1,52 @@
+{% extends 'layout.html' %} {% block body %}
+<style>
+  .contenti {
+    max-width: 1000px;
+    margin: auto;
+  }
+  @media only screen and (max-width: 600px) {
+    .contenti {
+      max-width: 500px;
+      margin: auto;
+    }
+  }
+</style>
+<div class="contenti" style="margin-top: 10px; padding-left: 10px">
+  <h1>{{title}}</h1>
+</div>
+<div class="contenti" style="margin-bottom: 120px">
+  <form class="row g-2" method="POST" action="{{ url_for('profile') }}">
+    <div class="container">
+      <div class="col-md-6">
+        <label for="Name" style="font-size: 17px"><b>Username</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          value="{{session.username}}"
+          style="font-weight: bold"
+          readonly
+        />
+      </div>
+      {% for row in rows %}
+
+      <div class="col-md-6">
+        <label for="emailId" style="font-size: 17px"><b>email Id</b></label>
+        <input type="text" class="form-control" id="email" name="email"
+        value="{{row["email"]}}" style="font-weight: bold" readonly />
+      </div>
+      <div class="col-md-6">
+        <label for="emailId" style="font-size: 17px"
+          ><b>Profile Image</b></label
+        >
+        <div class="container">
+          <img src="{{row["path"]}}" style="width:50%;height: 50%;margin-top:
+          10px; border: solid; color: #ffffff; border-width: 5px;">
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>Add Details</title> 
+    <script type="text/JavaScript" src="{{ url_for('static', filename='scripts/cities.js') }}"></script> 
+</head>  
+<body>  
+    <h2></h2>   
+    <form action = "/savedetails" method="post">  
+    <table>  
+        <tr><td>Name</td><td><input type="text" name="name"></td></tr>  
+        <tr><td>Phone Number</td><td><input type="number" name="phonenumber"></td></tr>  
+        <tr><td>Adhar Number</td><td><input type="number" name="adharnumber"></td></tr>  
+        <tr><td>Area</td><td><input type="text" name="area"></td></tr>  
+        <tr><td>crop to grow</td><td><input type="text" name="cropg"></td></tr>  
+        <tr><td>recommended crop</td><td><input type="text" name="cropr"></td></tr>
+        <tr><td>Nitrogen</td><td><input type="text" name="nitrogen"></td></tr>
+        <tr><td>Phosphorous</td><td><input type="text" name="phosphorous"></td></tr>
+        <tr><td>Pottasium</td><td><input type="text" name="pottasium"></td></tr>
+        <tr><td>ph level</td><td><input type="text" name="ph"></td></tr>
+        <tr><td>rainfall</td><td><input type="text" name="rainfall"></td></tr>
+        <tr><td><label for="State" style="font-size: 17px "><b>State</b></label></td><td><select
+            onchange="print_city('state', this.selectedIndex);"
+            id="sts"
+            name="state"
+            class="form-control"
+            required
+          ></select></td></tr>
+        <tr><td><label for="City" style="font-size: 17px"><b>City</b></label></td><td><select
+            id="state"
+            class="form-control"
+            name="city"
+            required
+          ></select>
+          <script language="javascript">
+            print_state("sts");
+          </script></td></tr>
+
+        
+        </table>
+        <tr><td><input type="submit" value="Submit"></td></tr>  
+
+    </form>  
+</body>  
+</html>  

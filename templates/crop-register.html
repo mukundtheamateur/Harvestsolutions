@@ -1,0 +1,209 @@
+{% extends 'layout.html' %} {% block body %}
+
+<style>
+  html body {
+    background-color: rgb(162, 233, 185);
+
+
+  }
+</style>
+<!--Form Section-->
+<br /><br />
+<h2 style="text-align: center; margin: 0px; color: rgb(216, 216, 216)">
+  <b>Register Your Farm</b>
+</h2>
+<br />
+
+<div class="container" style="margin-bottom: 20px;">
+  <form class="row g-2" method="POST" action="{{ url_for('crop_register_success') }}">
+    <div class="col-md-12">
+      <!-- <label for="inputname4" class="form-label" style="font-size: 17px;">Username:</label> -->
+      <input type="hidden" class="form-control" name="username" style="font-weight: bold" value="{{session.username}}"
+        readonly />
+
+    </div>
+    <div class="col-md-6">
+      <label for="inputname4" class="form-label" style="font-size: 17px;"">Name</label>
+      <input type=" text" class="form-control" name="name" style="font-weight: bold" required />
+    </div>
+    <div class="col-md-6">
+      <label for="inputphone4" class="form-label" style="font-size: 17px;"">Phone number</label>
+      <input type=" number" class="form-control" name="phonenumber" style="font-weight: bold" required />
+    </div>
+    <div class="col-md-6">
+      <label for="inputAadhar" class="form-label" style="font-size: 17px;"">Aadhar number</label>
+      <input type=" number" class="form-control" name="adharnumber" placeholder="16 digit addhar number"
+        style="font-weight: bold" required />
+    </div>
+    <div class="col-md-6">
+      <label for="inputArea" class="form-label" style="font-size: 17px;"">Area</label>
+      <input type=" number" name="area" class="form-control" id="inputArea" placeholder="in sq ft"
+        style="font-weight: bold" required />
+    </div>
+    <div class="col-md-5">
+      <label for="inputCropg2" class="form-label" style="font-size: 17px;">Crop to grow</label>
+      <!-- <input type="text" class="form-control" name="cropg" placeholder="crop to grow" style="font-weight: bold" required /> -->
+      <select style="margin-top: 5px;" class="form-select form-select-sm" aria-label=".form-select-sm example"
+        type="text" name="cropg" data-bs-toggle="tooltip" data-bs-placement="left">
+        <option selected>Select Crop</option>
+        <option value="rice">rice</option>
+        <option value="wheat">wheat</option>
+        <option value="Mung Bean">Mung Bean</option>
+        <option value="Tea">Tea</option>
+        <option value="millet">millet</option>
+        <option value="Lentil">Lentil</option>
+        <option value="Jute">Jute</option>
+        <option value="Coffee">Coffee</option>
+        <option value="Cotton">Cotton</option>
+        <option value="Ground Nut">Ground Nut</option>
+        <option value="Peas">Peas</option>
+        <option value="Rubber">Rubber</option>
+        <option value="Sugarcane">Sugarcane</option>
+        <option value="Tobacco">Tobacco</option>
+        <option value="Kidney Beans">Kidney Beans</option>
+        <option value="Moth Beans">Moth Beans</option>
+        <option value="Coconut">Coconut</option>
+        <option value="Black gram">Black gram</option>
+        <option value="Adzuki Beans">Adzuki Beans</option>
+        <option value="Pigeon Peas">Pigeon Peas</option>
+        <option value="Chickpea">Chickpea</option>
+        <option value="banana">banana</option>
+        <option value="grapes">grapes</option>
+        <option value="apple">apple</option>
+        <option value="mango">mango</option>
+        <option value="muskmelon">muskmelon</option>
+        <option value="orange">orange</option>
+        <option value="papaya">papaya</option>
+        <option value="pomegranate">pomegranate</option>
+        <option value="watermelon">watermelon</option>
+      </select>
+
+
+
+
+    </div>
+    <div class="col-md-5">
+      <label for="inputCropr2" class="form-label" style="font-size: 17px;">Recommended Crop</label>
+      <!-- <input type="text" class="form-control" name="cropr" style="font-weight: bold" placeholder="recommended crop"  required /> -->
+      <select style="margin-top: 5px;" class="form-select form-select-sm" aria-label=".form-select-sm example"
+        type="text" name="cropr" data-bs-toggle="tooltip" data-bs-placement="left">
+        <option selected>Select Crop</option>
+        <option value="rice">rice</option>
+        <option value="wheat">wheat</option>
+        <option value="Mung Bean">Mung Bean</option>
+        <option value="Tea">Tea</option>
+        <option value="millet">millet</option>
+        <option value="Lentil">Lentil</option>
+        <option value="Jute">Jute</option>
+        <option value="Coffee">Coffee</option>
+        <option value="Cotton">Cotton</option>
+        <option value="Ground Nut">Ground Nut</option>
+        <option value="Peas">Peas</option>
+        <option value="Rubber">Rubber</option>
+        <option value="Sugarcane">Sugarcane</option>
+        <option value="Tobacco">Tobacco</option>
+        <option value="Kidney Beans">Kidney Beans</option>
+        <option value="Moth Beans">Moth Beans</option>
+        <option value="Coconut">Coconut</option>
+        <option value="Black gram">Black gram</option>
+        <option value="Adzuki Beans">Adzuki Beans</option>
+        <option value="Pigeon Peas">Pigeon Peas</option>
+        <option value="Chickpea">Chickpea</option>
+        <option value="banana">banana</option>
+        <option value="grapes">grapes</option>
+        <option value="apple">apple</option>
+        <option value="mango">mango</option>
+        <option value="muskmelon">muskmelon</option>
+        <option value="orange">orange</option>
+        <option value="papaya">papaya</option>
+        <option value="pomegranate">pomegranate</option>
+        <option value="watermelon">watermelon</option>
+      </select>
+
+
+
+    </div>
+    <div class="col-md-2">
+      <label for="inputCropr2" class="form-label" style="font-size: 17px;"></label><br>
+      <a href="{{ url_for('crop_recommend') }}"><label type="text" class="btn btn-outline-primary"
+          style="color: rgb(255, 255, 255); font-weight: bold; width: 100px; height:60px; border-radius:12px; font-size: 21px; padding-top: 15px; padding-right: 15px;margin-left: 15px;"
+          data-bs-toggle="tooltip" data-bs-placement="right" title="Recommeded crop for your farm">
+          Predict
+        </label></a>
+    </div>
+
+    <div class="col-md-2">
+      <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
+      <input type="number" class="form-control" id="Nitrogen" name="nitrogen" placeholder="Enter the value (example:50)"
+        style="font-weight: bold" required />
+    </div>
+    <div class="col-md-2">
+      <label for="Phosphorous" style="font-size: 17px"><b>Phosphorous</b></label>
+      <input type="number" class="form-control" id="Phosphorous" name="phosphorous"
+        placeholder="Enter the value (example:50)" style="font-weight: bold" required />
+    </div>
+
+    <div class="col-md-2">
+      <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
+      <input type="number" class="form-control" id="Pottasium" name="pottasium"
+        placeholder="Enter the value (example:50)" style="font-weight: bold" required />
+    </div>
+    <div class="col-md-3">
+      <label for="ph" style="font-size: 17px"><b>ph level</b></label>
+      <input type="number" step="0.01" class="form-control" id="ph" name="ph" placeholder="Enter the value"
+        style="font-weight: bold" required />
+    </div>
+    <div class="col-md-3">
+      <label for="Rainfall" style="font-size: 17px"><b>Rainfall (in mm)</b></label>
+      <input type="number" step="0.01" class="form-control" id="Rainfall" name="rainfall" placeholder="Enter the value"
+        style="font-weight: bold" required />
+    </div>
+
+    <div class="col-md-6">
+      <label for="State" style="font-size: 17px "><b>State</b></label>
+      <select onchange="print_city('state', this.selectedIndex);" id="sts" name="state" class="form-control"
+        style="font-weight: bold;font-size: 17px" required></select>
+    </div>
+    <div class="col-md-4">
+      <label for="City" style="font-size: 17px"><b>City</b></label>
+      <select id="state" class="form-control" name="city" style="font-weight: bold; font-size: 17px" required></select>
+      <script language="javascript">
+        print_state("sts");
+      </script>
+    </div>
+
+    <div class="col-md-3" style="margin-top: 10px;">
+      <button type="button" class="btn btn-info"
+        style="color: rgb(255, 255, 255);margin-top:15px;margin-left: 15px; font-weight: bold; width: 130px; height:50px; border-radius:12px; font-size: 21px;"
+        data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Register
+      </button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Farm Registration</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <label for="inputname4" class="form-label" style="font-size: 17px;">Registered by {{session.username}}</label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<!-- Form section -->
+
+{% endblock %}

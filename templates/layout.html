@@ -3,7 +3,7 @@
 
 <head>
 	<title>{{ title }}</title>
-	<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
 
 	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -125,9 +125,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- css files -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
+	<link href="{{ url_for('static', filename='css/bootstrap.min3.css') }}" rel='stylesheet' type='text/css' />
 	<!-- bootstrap css -->
-	<link href="{{ url_for('static', filename='css/style.css') }}" rel='stylesheet' type='text/css' />
+	<!-- <link href="{{ url_for('static', filename='css/style.css') }}" rel='stylesheet' type='text/css' /> -->
 	<!-- custom css -->
 	<link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet"><!-- fontawesome css -->
 	<!-- //css files -->
@@ -171,15 +171,70 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ url_for('crop_recommend') }}">Crop</a>
+					
+					<li class="nav-item active">
+						<div class="dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+							  Our Services
+							</a>
+						  
+							<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+								<li class="nav-item">
+									<a class="dropdown-item disabled " tabindex="-1" aria-disabled="true" >Recommendation</a>
+								</li>
+								<li><hr class="dropdown-divider"></li>
+								{% if 'username' not in session %}
+								<li class="nav-item">
+									<a class="dropdown-item" href="{{ url_for('login') }}">Crop</a>
+								</li>
+								<li class="nav-item">
+									<a class="dropdown-item" href="{{ url_for('login') }}">Fertilizer</a>
+								</li>
+								<li class="nav-item">
+									<a class="dropdown-item" href="{{ url_for('login') }}">Disease</a>
+								</li>
+								{% endif %}
+								
+			
+								{% if session['username'] %}
+								<li class="nav-item">
+									<a class="dropdown-item" href="{{ url_for('crop') }}">Crop</a>
+								</li>
+								<li class="nav-item">
+									<a class="dropdown-item" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer</a>
+								</li>
+								
+								<li class="nav-item">
+									<a class="dropdown-item" href="{{ url_for('user_details') }}">Invest</a>
+								</li>
+								{% endif %}
+							</ul>
+						  </div>
 					</li>
+					
+					
+					{% if 'username' not in session %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer</a>
+						<a class="nav-link" href="{{ url_for('login') }}">Invest</a>
 					</li>
+					{% endif %}
+					{% if session['username'] %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{ url_for('disease_prediction') }}">Disease</a>
+						<a class="nav-link" href="{{ url_for('profile') }}">{{session.username}}</a>
 					</li>
+					{% endif %}
+					{% if 'username' not in session %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('login') }}">Login</a>
+					</li>
+					{% endif %}
+					{% if session['username'] %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+					</li>
+					{% endif %}
+					
+
 				</ul>
 			</div>
 		</div>
@@ -216,7 +271,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<p class="homelogo">
 			<p>Chandigarh Engineering College - ECE Y1</p>
 			<p>&copy; Copyright 2021 M&M</p>
-			
+
 		</div>
 	</footer>
 	<!-- //footer -->
@@ -224,6 +279,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- move top icon -->
 	<a href="#home" class="move-top text-center"></a>
 	<!-- //move top icon -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 
 </html>

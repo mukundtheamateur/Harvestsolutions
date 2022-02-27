@@ -1,34 +1,18 @@
+
 {% extends 'layout.html' %} {% block body %}
 
-<style>
-
-    html body {
-      background-color: rgb(162, 233, 185);
-
-      
-  }
-
-  
-</style>
 <!--Form Section-->
 <br /><br />
-<h2 style="text-align: center; margin: 0px; color: black">
+<h2 style="text-align: center; margin: 0px; color: rgb(221, 221, 221)">
   <b>Find out the most suitable crop to grow in your farm</b>
 </h2>
 <br />
 
 <div
-  style="
-    width: 350px;
-    height: 50rem;
-    margin: 0px auto;
-    color: black;
-    border-radius: 25px;
-    padding: 10px 10px;
-  "
+  class="container"
 >
-  <form method="POST" action="{{ url_for('crop_prediction') }}">
-    <div class="form-group">
+  <form class="row g-2" method="POST" action="{{ url_for('crop_prediction') }}">
+    <div class="col-md-4">
       <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
       <input
         type="number"
@@ -40,7 +24,7 @@
         required
       />
     </div>
-    <div class="form-group">
+    <div class="col-md-4">
       <label for="Phosphorous" style="font-size: 17px"
         ><b>Phosphorous</b></label
       >
@@ -55,7 +39,7 @@
       />
     </div>
 
-    <div class="form-group">
+    <div class="col-md-4">
       <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
       <input
         type="number"
@@ -67,7 +51,7 @@
         required
       />
     </div>
-    <div class="form-group">
+    <div class="col-md-6">
       <label for="ph" style="font-size: 17px"><b>ph level</b></label>
       <input
         type="number"
@@ -80,7 +64,8 @@
         required
       />
     </div>
-    <div class="form-group">
+
+    <div class="col-md-6">
       <label for="Rainfall" style="font-size: 17px"><b>Rainfall (in mm)</b></label>
       <input
         type="number"
@@ -93,24 +78,25 @@
         required
       />
     </div>
-    <div class="form-group">
+    <div class="col-md-6">
       <label for="State" style="font-size: 17px "><b>State</b></label>
       <select
         onchange="print_city('state', this.selectedIndex);"
         id="sts"
         name="stt"
         class="form-control"
-        style="font-weight: bold; color: black;"
+        style="font-weight: bold;color:#c58dfd"
         
         required
       ></select>
-      <br />
+      </div>
+      <div class="col-md-6">
       <label for="City" style="font-size: 17px"><b>City</b></label>
       <select
         id="state"
         class="form-control"
         name="city"
-        style="font-weight: bold; color: black;"
+        style="font-weight: bold; color: #c288fc;"
         required
       ></select>
       <script language="javascript">
@@ -122,7 +108,7 @@
       <button
         type="submit"
         class="btn btn-info"
-        style="color: black; font-weight: bold; width: 130px; height:50px; border-radius:12px; font-size: 21px;"
+        style="color: rgb(233, 233, 233); margin-top:10px;margin-bottom: 10px; font-weight: bold; width: 130px; height:50px; border-radius:12px; font-size: 21px;"
       >
         Predict
       </button>

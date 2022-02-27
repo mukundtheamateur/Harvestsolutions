@@ -1,0 +1,91 @@
+{% extends 'layout.html' %} {% block body %}
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin-left: 10px;
+      margin-right: 10px;
+      
+    }
+    .table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+    }
+    
+    #customers td, #customers th {
+      border: 3px solid rgb(21, 0, 48);
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers td {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #004C4B;
+      color: white;
+    }
+    @media screen and (max-width: 767px) {
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+    }
+    .table-responsive > .table {
+        margin-bottom: 0;
+    }
+    .table-responsive > .table > thead > tr > th,
+    .table-responsive > .table > tbody > tr > th,
+    .table-responsive > .table > tfoot > tr > th,
+    .table-responsive > .table > thead > tr > td,
+    .table-responsive > .table > tbody > tr > td,
+    .table-responsive > .table > tfoot > tr > td {
+        white-space: nowrap;
+    }
+}
+    </style>
+<h3>User Information</h3>  
+<div class="form-group">
+<table id=customers class="table-responsive">  
+    <thead>  
+        <td>ID</td>  
+        <td>Name</td>  
+        <td>phonenumber</td>  
+        <td>adharnumber</td>  
+        <td>area</td>  
+        <td>cropg</td>  
+        <td>cropr</td>  
+        <td>state</td>  
+        <td>city</td>  
+    </thead>  
+      
+    {% for row in rows %}  
+      
+        <tr>  
+            <td>{{row["id"]}}</td>  
+            <td>{{row["name"]}}</td>
+            <td>{{row["phonenumber"]}}</td>  
+            <td>{{row["adharnumber"]}}</td>  
+            <td>{{row["area"]}}</td>  
+            <td>{{row["cropg"]}}</td>  
+            <td>{{row["cropr"]}}</td>  
+            <td>{{row["state"]}}</td>  
+            <td>{{row["city"]}}</td>  
+        </tr>  
+      
+    {% endfor %}  
+</table>  
+<br><br>  
+</div>
+  
+<a href="/">Go back to home page</a>  
+ 
+<!-- Form section -->
+
+{% endblock %}

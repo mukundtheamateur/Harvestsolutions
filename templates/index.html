@@ -2,33 +2,63 @@
 
 {% block body %}
 <!-- banner -->
+<style>
+	.centeri {
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+
+	.contain {
+		height: 100px;
+		position: relative;
+
+	}
+</style>
 <section class="banner_w3lspvt" id="home">
 	<div class="csslider infinity" id="slider1">
-	
-				<div class="banner-top">
-					<div class="overlay">
-						<div class="container">
-							<div class="w3layouts-banner-info text-center">
-								<h3 class="text-whs">Harvestsolutions</h3>
-								<h4 class="text-wh mx-auto my-4"><b>Get informed decisions about your farming strategy.</b></h4>
-								
-								<h4 class="text-wh mx-auto my-4"><strong> Here are some questions we'll answer</strong></h4>
-								<p class="typewriter lead pl-2"></p>
-                
-								<p class="text-li mx-auto mt-2">
-									1. What crop to plant here? <br>
-									2. What fertilizer to use? <br>
-									3. Which disease do your crop have?<br>
-									4. How to cure the disease?</p>
-							</div>
-						</div>
+
+		<div class="banner-top">
+			<div class="overlay">
+				<div class="container">
+					<div class="w3layouts-banner-info text-center">
+						<h3 class="text-whs">Harvestsolutions</h3>
+						<h4 class="text-wh mx-auto my-4"><b>Get informed decisions about your farming strategy.</b></h4>
+
+						<h4 class="text-wh mx-auto my-4"><strong> Here are some questions we'll answer</strong></h4>
+						<p class="typewriter lead pl-2"></p>
+
+						<p class="text-li mx-auto mt-2">
+							1. What crop to plant here? <br>
+							2. What fertilizer to use? <br>
+							3. Which disease do your crop have?<br>
+							4. How to cure the disease?<br><br>
+							"CONTACT FARMING"</p>
 					</div>
 				</div>
+			</div>
+		</div>
 	</div>
 </section>
 <!-- //banner -->
 
-<!-- core values -->
+<div class="contain">
+	<div class="centeri">
+		{% if session['username'] %}<a href="{{ url_for('crop_register') }}"><button type="submit"
+				class="btn btn-warning center"
+				style="color: rgb(255, 255, 255);margin-top:15px;margin-left: 15px; font-weight: bold; width: 200px; height:50px; border-radius:12px; font-size: 19px;">Register
+				Your farm</button></a>{% endif %}
+		{% if 'username' not in session %}<a href="{{ url_for('login') }}"><button type="submit"
+				class="btn btn-warning center"
+				style="color: rgb(255, 255, 255);margin-top:15px;margin-left: 15px; font-weight: bold; width: 200px; height:50px; border-radius:12px; font-size: 19px;">Register
+				Your farm</button></a>{% endif %}
+
+	</div>
+</div>
+
 <section class="core-value py-5">
 	<div class="container py-md-4">
 		<h3 class="heading mb-sm-5 mb-4 text-center"> About Us</h3>
@@ -48,7 +78,6 @@
 		</div>
 	</div>
 </section>
-<!-- //core values -->
 
 <!-- Products & Services -->
 <section class="blog py-5">
@@ -56,8 +85,10 @@
 		<h3 class="heading mb-sm-5 mb-4 text-center">Our Services</h3>
 		<div class="row blog-grids">
 			<div class="col-lg-4 col-md-6 blog-left mb-lg-0 mb-sm-5 pb-lg-0 pb-5">
-				<img src="{{ url_for('static', filename='images/s3.jpg') }}" class="img-fluid" alt="" />
-				<a href="{{ url_for('crop_recommend') }}">
+				{% if session['username'] %}
+				<a href="{{ url_for('crop_recommend') }}"><img src="{{ url_for('static', filename='images/s3.jpg') }}"
+						class="img-fluid" alt="" /></a>{% endif %}
+				{% if session['username'] %}<a href="{{ url_for('crop_recommend') }}">
 					<div class="blog-info">
 
 						<h4>Crop</h4>
@@ -65,47 +96,69 @@
 						<p class="mt-2"> Recommendation about the type of crops to be cultivated which is best suited
 							for the respective conditions</p>
 					</div>
-				</a>
+				</a>{% endif %}
+				{% if 'username' not in session %}
+				<a href="{{ url_for('login') }}"><img src="{{ url_for('static', filename='images/s3.jpg') }}"
+						class="img-fluid" alt="" /></a>{% endif %}
+				{% if 'username' not in session %}<a href="{{ url_for('login') }}">
+					<div class="blog-info">
+
+						<h4>Crop</h4>
+
+						<p class="mt-2"> Recommendation about the type of crops to be cultivated which is best suited
+							for the respective conditions</p>
+					</div>
+				</a>{% endif %}
 			</div>
 			<div class="col-lg-4 col-md-6 blog-middle mb-lg-0 mb-sm-5 pb-lg-0 pb-md-5">
-				<img src="{{ url_for('static', filename='images/s2.jpg') }}" class="img-fluid" alt="" />
-				<a href="{{ url_for('fertilizer_recommendation') }}">
+				{% if session['username'] %}<a href="{{ url_for('fertilizer_recommendation') }}"><img
+						src="{{ url_for('static', filename='images/s2.jpg') }}" class="img-fluid" alt="" /></a>{% endif
+				%}
+				{% if 'username' not in session %}<a href="{{ url_for('login') }}"><img
+						src="{{ url_for('static', filename='images/s2.jpg') }}" class="img-fluid" alt="" /></a>{% endif
+				%}
+				{% if session['username'] %}<a href="{{ url_for('fertilizer_recommendation') }}">
 					<div class="blog-info">
 						<h4>Fertilizer</h4>
 						<p class="mt-2">Recommendation about the type of fertilizer best suited for the particular soil
 							and the recommended crop</p>
 					</div>
-				</a>
+				</a>{% endif %}
+				{% if 'username' not in session %}<a href="{{ url_for('login') }}">
+					<div class="blog-info">
+						<h4>Fertilizer</h4>
+						<p class="mt-2">Recommendation about the type of fertilizer best suited for the particular soil
+							and the recommended crop</p>
+					</div>
+				</a>{% endif %}
 			</div>
 			<div class="col-lg-4 col-md-6 blog-right mt-lg-0 mt-5 pt-lg-0 pt-md-5">
 
-				<img src="{{ url_for('static', filename='images/s4.jpg') }}" class="img-fluid" alt="">
+				{% if session['username'] %}<a href="{{url_for('user_details')}}"><img
+						src="{{ url_for('static', filename='images/s4.jpg') }}" class="img-fluid"
+						style="width: fit-content;" alt="" /></a>{% endif %}
+				{% if 'username' not in session %}<a href="{{url_for('login')}}"><img
+						src="{{ url_for('static', filename='images/s4.jpg') }}" class="img-fluid"
+						style="width: fit-content;" alt="" /></a>{% endif %}
 
-				<!-- <img src="images/s4.jpg" class="img-fliud" alt="" /> -->
-				<a href="{{ url_for('disease_prediction') }}">
+
+				{% if session['username'] %}<a href="{{url_for('user_details')}}">
 					<div class="blog-info">
-						<h4>Crop Disease</h4>
-						<p class="mt-2">Predicting the name and causes of crop disease and suggestions to cure it</p>
+						<h4>Contact farming</h4>
+						<p class="mt-2">Invest in farms</p>
 					</div>
-				</a>
+				</a>{% endif %}
+				{% if 'username' not in session %}<a href="{{url_for('login')}}">
+					<div class="blog-info">
+						<h4>Contact farming</h4>
+						<p class="mt-2">Invest in farms</p>
+					</div>
+				</a>{% endif %}
 			</div>
 		</div>
 	</div>
 </section>
-<!-- //Products & Services -->
 
-
-<!-- Creating custom grid and hover effect
-<section>
-<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-    <div class="hovereffect">
-        <img class="img-responsive" src="images/s2.jpg" alt="">
-        <div class="overlay">
-           <h2>Hover effect 1</h2>
-           <a class="info" href="#">link here</a>
-        </div>
-    </div>
-</div> -->
 
 </html>
 
